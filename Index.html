@@ -2,32 +2,46 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Gestión Académica</title>
+
+    <title>AutoDrive | Venta de Vehículos</title>
 
     <!-- Bootstrap -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- CSS propio -->
+    <!-- Bootstrap Icons -->
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+
     <link rel="stylesheet" href="CSS/style.css">
+
 </head>
 
 <body>
 
-    <header>
-        <h1>Sistema de Gestión Académica</h1>
-        <p>Administración de estudiantes, docentes y calificaciones</p>
-    </header>
+    <!--================ NAVBAR ================-->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 
         <div class="container">
 
-            <a class="navbar-brand" href="#">SGA</a>
+            <a class="navbar-brand fw-bold" href="#">
+                🚗 AutoDrive
+            </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
+
                 <span class="navbar-toggler-icon"></span>
+
             </button>
 
             <div class="collapse navbar-collapse" id="menu">
@@ -39,11 +53,15 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#quienes-somos">Quiénes Somos</a>
+                        <a class="nav-link" href="#nosotros">Quiénes Somos</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#servicios">Servicios</a>
+                        <a class="nav-link" href="#vehiculos">Vehículos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#registro">Registrar</a>
                     </li>
 
                     <li class="nav-item">
@@ -58,90 +76,119 @@
 
     </nav>
 
-    <main class="container">
+    <!--================ HEADER ================-->
 
-        <!-- INICIO -->
-        <section id="inicio" class="hero text-center p-3 m-3">
+    <header id="inicio" class="hero">
 
-            <h2>Bienvenido</h2>
+        <div class="overlay">
 
-            <p>
-                Plataforma web diseñada para gestionar estudiantes,
-                docentes, materias y calificaciones de manera eficiente.
-            </p>
+            <div class="container text-center text-white">
 
-            <a href="#contacto" class="btn btn-primary">
-                Contáctanos
-            </a>
+                <h1 class="display-3 fw-bold">
 
-            <a href="#servicios" class="btn btn-success">
-                Ver Servicios
-            </a>
+                    AutoDrive
 
-        </section>
+                </h1>
 
-        <!-- QUIENES SOMOS -->
-        <section id="quienes-somos" class="container p-3">
+                <p class="lead">
 
-            <h2 class="text-center mb-4">
-                Quiénes Somos
-            </h2>
+                    Encuentra el vehículo perfecto para ti.
 
-            <div class="row">
+                </p>
+
+                <a href="#vehiculos" class="btn btn-danger btn-lg mt-3">
+
+                    Ver Catálogo
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <!--================ QUIÉNES SOMOS ================-->
+
+        <section id="nosotros" class="container py-5">
+
+            <div class="row align-items-center">
+
+                <div class="col-md-6">
+
+                    <img src="img/concesionario.jpg"
+                        class="img-fluid rounded shadow"
+                        alt="Concesionario">
+
+                </div>
 
                 <article class="col-md-6">
 
+                    <h2>
+
+                        Quiénes Somos
+
+                    </h2>
+
                     <p>
-                        El Sistema de Gestión Académica es un proyecto orientado a mejorar la
-                        organización y administración de la información educativa dentro de una
-                        institución. Esta plataforma permite registrar estudiantes, gestionar
-                        asignaturas, controlar calificaciones y facilitar la comunicación entre
-                        docentes y alumnos. Además, proporciona un entorno seguro para almacenar
-                        información académica y generar reportes que apoyen la toma de decisiones.
-                        El sistema busca reducir el uso de documentos físicos, agilizar los procesos
-                        administrativos y mejorar la experiencia de los usuarios mediante una
-                        interfaz amigable y accesible. Gracias a las tecnologías web modernas, la
-                        plataforma puede ser utilizada desde distintos dispositivos con acceso a
-                        internet, contribuyendo a la transformación digital de los procesos
-                        educativos y al fortalecimiento de la gestión académica institucional.
+
+                        AutoDrive es una empresa dedicada a la venta de vehículos nuevos y seminuevos.
+                        Nuestro compromiso es ofrecer automóviles de excelente calidad, asesoría
+                        personalizada y una experiencia de compra segura. Contamos con una amplia
+                        variedad de modelos para diferentes necesidades y presupuestos, además de
+                        opciones de financiamiento, garantía y servicio postventa. Gracias a nuestro
+                        equipo de profesionales buscamos que cada cliente encuentre el vehículo ideal
+                        para su familia, trabajo o negocio.
+
                     </p>
 
                 </article>
 
-                <div class="col-md-6 text-center">
-
-                    <img src="img/hq720.jpg"
-                        alt="Sistema Académico"
-                        class="img-fluid rounded shadow">
-
-                </div>
-
             </div>
 
         </section>
 
-        <!-- SERVICIOS -->
-        <section id="servicios" class="container p-3">
+        <!--================ VEHÍCULOS ================-->
 
-            <h2 class="text-center mb-4">
-                Servicios
+        <section id="vehiculos" class="container py-5">
+
+            <h2 class="text-center mb-5">
+
+                Vehículos Destacados
+
             </h2>
 
             <div class="row">
 
+                <!-- Auto 1 -->
+
                 <div class="col-md-4">
 
-                    <div class="card m-3">
+                    <div class="card shadow mb-4">
 
-                        <div class="card-body">
+                        <img src="img/toyota.jpg"
+                            class="card-img-top"
+                            alt="Toyota">
 
-                            <h5 class="card-title">
-                                Registro de Estudiantes
-                            </h5>
+                        <div class="card-body text-center">
 
-                            <p class="card-text">
-                                Administración completa de alumnos.
-                            </p>
+                            <h4>Toyota Corolla</h4>
+
+                            <p>Año 2025</p>
+
+                            <p>Motor 1.8</p>
+
+                            <p>Automático</p>
+
+                            <h5 class="text-danger">$22.900</h5>
+
+                            <button class="btn btn-dark w-100">
+
+                                Comprar
+
+                            </button>
 
                         </div>
 
@@ -149,19 +196,33 @@
 
                 </div>
 
+                <!-- Auto 2 -->
+
                 <div class="col-md-4">
 
-                    <div class="card m-3">
+                    <div class="card shadow mb-4">
 
-                        <div class="card-body">
+                        <img src="img/chevrolet.jpg"
+                            class="card-img-top"
+                            alt="Chevrolet">
 
-                            <h5 class="card-title">
-                                Gestión de Docentes
-                            </h5>
+                        <div class="card-body text-center">
 
-                            <p class="card-text">
-                                Control de información académica.
-                            </p>
+                            <h4>Chevrolet Sail</h4>
+
+                            <p>Año 2024</p>
+
+                            <p>Motor 1.5</p>
+
+                            <p>Manual</p>
+
+                            <h5 class="text-danger">$16.500</h5>
+
+                            <button class="btn btn-dark w-100">
+
+                                Comprar
+
+                            </button>
 
                         </div>
 
@@ -169,19 +230,33 @@
 
                 </div>
 
+                <!-- Auto 3 -->
+
                 <div class="col-md-4">
 
-                    <div class="card m-3">
+                    <div class="card shadow mb-4">
 
-                        <div class="card-body">
+                        <img src="img/sportage.jpg"
+                            class="card-img-top"
+                            alt="Kia">
 
-                            <h5 class="card-title">
-                                Reportes Académicos
-                            </h5>
+                        <div class="card-body text-center">
 
-                            <p class="card-text">
-                                Generación de reportes y estadísticas.
-                            </p>
+                            <h4>Kia Sportage</h4>
+
+                            <p>Año 2025</p>
+
+                            <p>Motor 2.0</p>
+
+                            <p>Automática</p>
+
+                            <h5 class="text-danger">$31.900</h5>
+
+                            <button class="btn btn-dark w-100">
+
+                                Comprar
+
+                            </button>
 
                         </div>
 
@@ -193,125 +268,263 @@
 
         </section>
 
-        <!-- VIDEO -->
-        <section class="container text-center p-3">
+        <!--================ REGISTRO ================-->
 
-            <h2>Video Informativo</h2>
-
-            <iframe width="560"
-                height="315"
-                src="https://www.youtube.com/embed/rfscVS0vtbw"
-                title="Video Informativo"
-                allowfullscreen>
-            </iframe>
-
-        </section>
-
-        <!-- CONTACTO -->
-        <section id="contacto" class="container p-3">
+        <section id="registro" class="container py-5">
 
             <h2 class="text-center">
-                Contacto
+
+                Registrar Vehículo
+
             </h2>
 
-            <form>
+            <form id="formVehiculo">
 
-                <div class="mb-3">
+                <div class="row">
 
-                    <label class="form-label">
-                        Nombre
-                    </label>
+                    <div class="col-md-4 mb-3">
 
-                    <input type="text" class="form-control">
+                        <input
+                            type="text"
+                            id="marca"
+                            class="form-control"
+                            placeholder="Marca">
 
-                </div>
+                    </div>
 
-                <div class="mb-3">
+                    <div class="col-md-4 mb-3">
 
-                    <label class="form-label">
-                        Correo Electrónico
-                    </label>
+                        <input
+                            type="text"
+                            id="modelo"
+                            class="form-control"
+                            placeholder="Modelo">
 
-                    <input type="email" class="form-control">
+                    </div>
 
-                </div>
+                    <div class="col-md-4 mb-3">
 
-                <div class="mb-3">
+                        <input
+                            type="number"
+                            id="precio"
+                            class="form-control"
+                            placeholder="Precio">
 
-                    <label class="form-label">
-                        Asunto
-                    </label>
-
-                    <input type="text" class="form-control">
-
-                </div>
-
-                <div class="mb-3">
-
-                    <label class="form-label">
-                        Mensaje
-                    </label>
-
-                    <textarea class="form-control" rows="4"></textarea>
+                    </div>
 
                 </div>
 
-                <button type="submit" class="btn btn-primary">
-                    Enviar
+                <button
+                    type="submit"
+                    class="btn btn-success">
+
+                    Agregar Vehículo
+
                 </button>
 
             </form>
 
-            <div class="mt-4">
+            <div id="mensaje" class="mt-3"></div>
 
-                <a href="mailto:contacto@sistemaacademico.com"
-                    class="btn btn-danger">
-                    Correo
-                </a>
+            <h4 class="mt-4">
 
-                <a href="https://www.facebook.com"
-                    class="btn btn-primary"
-                    target="_blank">
-                    Facebook
-                </a>
+                Vehículos registrados:
+                <span id="contador">0</span>
 
-                <a href="https://maps.google.com"
-                    class="btn btn-success"
-                    target="_blank">
-                    Ubicación
-                </a>
+            </h4>
+
+            <div id="listaVehiculos" class="row"></div>
+
+        </section>
+        <!--================ VIDEO ================-->
+
+        <section class="container py-5 text-center">
+
+            <h2 class="mb-4">
+
+                Conoce Nuestra Concesionaria
+
+            </h2>
+
+            <div class="ratio ratio-16x9 shadow rounded">
+
+                <iframe
+                    src="https://www.youtube.com/watch?v=4T55HorB5pU"
+                    title="Carros Nuevos en Ecuador ¿Cuanto Cuesta Realmente Comprar Uno?"
+                    allowfullscreen>
+                </iframe>
 
             </div>
 
         </section>
 
-        <aside class="m-3">
+        <!--================ ASIDE ================-->
 
-            <h3>Información Complementaria</h3>
+        <aside class="container my-5">
 
-            <p><strong>Horario:</strong> 08:00 - 17:00</p>
+            <div class="alert alert-warning shadow">
 
-            <p>
-                Promoción para nuevos usuarios:
-                primer mes gratuito.
-            </p>
+                <h4>
+
+                    🚗 Promoción del Mes
+
+                </h4>
+
+                <p>
+
+                    Compra cualquier vehículo y recibe un bono de mantenimiento gratuito durante los
+                    primeros 6 meses.
+
+                </p>
+
+                <p>
+
+                    Además contamos con planes de financiamiento desde el 10% de entrada.
+
+                </p>
+
+            </div>
 
         </aside>
 
+        <!--================ CONTACTO ================-->
+
+        <section id="contacto" class="container py-5">
+
+            <h2 class="text-center mb-5">
+
+                Contáctanos
+
+            </h2>
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <h4 class="mb-4">
+
+                        Información de Contacto
+
+                    </h4>
+
+                    <p>
+
+                        <i class="bi bi-envelope-fill text-danger"></i>
+
+                        ventas@autodrive.com
+
+                    </p>
+
+                    <p>
+
+                        <i class="bi bi-telephone-fill text-danger"></i>
+
+                        0987654321
+
+                    </p>
+
+                    <p>
+
+                        <i class="bi bi-geo-alt-fill text-danger"></i>
+
+                        Riobamba - Ecuador
+
+                    </p>
+
+                    <div class="mt-4">
+
+                        <a href="#" class="btn btn-primary me-2">
+
+                            <i class="bi bi-facebook"></i>
+
+                            Facebook
+
+                        </a>
+
+                        <a href="#" class="btn btn-danger me-2">
+
+                            <i class="bi bi-instagram"></i>
+
+                            Instagram
+
+                        </a>
+
+                        <a href="#" class="btn btn-success">
+
+                            <i class="bi bi-whatsapp"></i>
+
+                            WhatsApp
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <img
+                        src="img/concesionario.jpg"
+                        class="img-fluid rounded shadow"
+                        alt="Concesionaria">
+
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
 
-    <footer>
+    <!--================ FOOTER ================-->
 
-        <p>Desarrollado por Edgar Lema</p>
+    <footer class="bg-dark text-white text-center p-4 mt-5">
 
-        <p>Asignatura: Desarrollo de Aplicaciones Web</p>
+        <h5>
 
-        <p>Año: 2026</p>
+            AutoDrive | Venta de Vehículos
+
+        </h5>
+
+        <p>
+
+            Desarrollado por Edgar Lema
+
+        </p>
+
+        <p>
+
+            Asignatura: Desarrollo de Aplicaciones Web
+
+        </p>
+
+        <p>
+
+            Año: 2026
+
+        </p>
 
     </footer>
 
+    <!-- Bootstrap -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript -->
+
+    <script src="js/script.js"></script>
 
 </body>
 
+</html>
+</main>
+
+<footer>
+...
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
 </html>

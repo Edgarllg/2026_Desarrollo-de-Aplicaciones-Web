@@ -1,62 +1,433 @@
-body{
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
+/* ===========================
+   ESTILOS GENERALES
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
-header{
-    background: linear-gradient(90deg,#0d6efd,#0dcaf0);
-    color: white;
-    padding: 30px;
-    text-align: center;
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f5f5;
+    color:#333;
 }
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar{
+    box-shadow:0 2px 10px rgba(0,0,0,.3);
+}
+
+.navbar-brand{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.nav-link{
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#dc3545 !important;
+}
+
+/* ===========================
+   HERO
+=========================== */
 
 .hero{
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+
+    background-image:url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600");
+
+    background-size:cover;
+
+    background-position:center;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
 }
 
+.overlay{
+
+    background:rgba(0,0,0,.65);
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.hero h1{
+
+    font-size:70px;
+
+    text-shadow:3px 3px 10px black;
+
+}
+
+.hero p{
+
+    font-size:25px;
+
+}
+
+.hero .btn{
+
+    padding:15px 35px;
+
+    font-size:20px;
+
+}
+
+/* ===========================
+   TITULOS
+=========================== */
+
+h2{
+
+    font-weight:bold;
+
+    margin-bottom:30px;
+
+    color:#212529;
+
+}
+
+/* ===========================
+   QUIENES SOMOS
+=========================== */
+
+#nosotros{
+
+    background:white;
+
+    border-radius:15px;
+
+    margin-top:70px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+#nosotros img{
+
+    border-radius:15px;
+
+}
+
+/* ===========================
+   TARJETAS
+=========================== */
+
 .card{
-    transition: transform 0.3s;
+
+    border:none;
+
+    transition:.4s;
+
+    overflow:hidden;
+
 }
 
 .card:hover{
-    transform: scale(1.05);
+
+    transform:translateY(-10px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
+
 }
 
-aside{
-    background-color: #e9ecef;
-    border-radius: 10px;
-    padding: 20px;
+.card img{
+
+    height:220px;
+
+    object-fit:cover;
+
 }
+
+.card h4{
+
+    font-weight:bold;
+
+}
+
+.card button{
+
+    width:100%;
+
+}
+
+/* ===========================
+   FORMULARIOS
+=========================== */
+
+form{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+.form-control{
+
+    border-radius:10px;
+
+}
+
+.form-control:focus{
+
+    box-shadow:0 0 10px rgba(220,53,69,.4);
+
+    border-color:#dc3545;
+
+}
+
+/* ===========================
+   MENSAJES
+=========================== */
+
+#mensaje{
+
+    font-weight:bold;
+
+}
+
+/* ===========================
+   TARJETAS CREADAS POR JS
+=========================== */
+
+#listaVehiculos .card{
+
+    margin-top:20px;
+
+    animation:aparecer .5s;
+
+}
+
+/* ===========================
+   VIDEO
+=========================== */
+
+iframe{
+
+    max-width:100%;
+
+    border-radius:15px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+
+}
+
+/* ===========================
+   ASIDE
+=========================== */
+
+aside .alert{
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+/* ===========================
+   CONTACTO
+=========================== */
+
+#contacto{
+
+    background:white;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+#contacto i{
+
+    transition:.3s;
+
+}
+
+#contacto i:hover{
+
+    transform:scale(1.2);
+
+    color:#212529 !important;
+
+}
+
+/* ===========================
+   FOOTER
+=========================== */
 
 footer{
-    background-color: #212529;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 20px;
+
+    margin-top:60px;
+
 }
 
-img{
-    max-height: 350px;
+footer h5{
+
+    margin-bottom:10px;
+
+}
+
+/* ===========================
+   BOTONES
+=========================== */
+
+.btn{
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* ===========================
+   ANIMACIONES
+=========================== */
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+.hero{
+
+height:80vh;
+
+}
+
+.hero h1{
+
+font-size:50px;
+
+}
+
+.hero p{
+
+font-size:20px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+
+height:70vh;
+
+}
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+}
+
+#nosotros{
+
+text-align:center;
+
+}
+
+.card{
+
+margin-bottom:25px;
+
 }
 
 iframe{
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+
+height:250px;
+
 }
 
-/* Media Query */
-@media (max-width:768px){
+}
 
-    header h1{
-        font-size: 1.8rem;
-    }
+@media(max-width:576px){
 
-    iframe{
-        width: 100%;
-        height: 250px;
-    }
+.hero{
+
+height:60vh;
+
+}
+
+.hero h1{
+
+font-size:30px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+}
+
+.navbar-brand{
+
+font-size:22px;
+
+}
 
 }
