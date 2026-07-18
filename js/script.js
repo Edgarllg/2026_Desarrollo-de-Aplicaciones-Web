@@ -61,6 +61,26 @@ const mensajeCatalogo = document.getElementById("mensajeCatalogo");
 const mensaje = document.getElementById("mensaje");
 const contador = document.getElementById("contador");
 
+// Elementos para el spinner de carga inicial
+const cargaInicial = document.getElementById("cargaInicial");
+
+// Elementos para el spinner del botón "Agregar Vehículo"
+const btnRegistrar = document.getElementById("btnRegistrar");
+const spinnerRegistrar = document.getElementById("spinnerRegistrar");
+const textoBtnRegistrar = document.getElementById("textoBtnRegistrar");
+
+// Elementos para el modal de detalle
+const modalDetalleBody = document.getElementById("modalDetalleBody");
+const modalDetalle = new bootstrap.Modal(document.getElementById("modalDetalle"));
+
+// Elementos para el modal de confirmación de eliminación
+const modalConfirmarEliminar = new bootstrap.Modal(document.getElementById("modalConfirmarEliminar"));
+const nombreVehiculoEliminar = document.getElementById("nombreVehiculoEliminar");
+const btnConfirmarEliminar = document.getElementById("btnConfirmarEliminar");
+
+// Guarda temporalmente el id del vehículo que se quiere eliminar
+let idVehiculoAEliminar = null;
+
 // ==========================================================================
 // RENDERIZADO DINÁMICO DE LA SECCIÓN PRINCIPAL
 // --------------------------------------------------------------------------
@@ -110,9 +130,14 @@ function renderizarVehiculos() {
                     <p class="text-muted mb-1">${vehiculo.tipo}</p>
                     <h5 class="text-danger">$ ${vehiculo.precio}</h5>
                     <p>${vehiculo.descripcion}</p>
-                    <button class="btn btn-danger w-100 mt-2 btn-eliminar" data-id="${vehiculo.id}">
-                        Eliminar
-                    </button>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary w-50 btn-detalle" data-id="${vehiculo.id}">
+                            Detalles
+                        </button>
+                        <button class="btn btn-danger w-50 btn-eliminar" data-id="${vehiculo.id}">
+                            Eliminar
+                        </button>
+                    </div>
                 </div>
             </div>
         `;
@@ -122,14 +147,63 @@ function renderizarVehiculos() {
 
     contador.textContent = vehiculosData.length;
 
-    // Se asigna el evento "click" a cada botón Eliminar recién creado
+    // Botón "Detalles": abre el modal con la información completa del vehículo
+    document.querySelectorAll(".btn-detalle").forEach(function (boton) {
+        boton.addEventListener("click", function () {
+            const id = parseInt(this.dataset.id);
+            mostrarDetalleVehiculo(id);
+        });
+    });
+
+    // Botón "Eliminar": abre el modal de confirmación antes de borrar
     document.querySelectorAll(".btn-eliminar").forEach(function (boton) {
         boton.addEventListener("click", function () {
             const id = parseInt(this.dataset.id);
-            eliminarVehiculo(id);
+            solicitarEliminarVehiculo(id);
         });
     });
 }
+
+// Busca un vehículo por id y muestra sus datos completos en el modal de detalle
+function mostrarDetalleVehiculo(id) {
+    const vehiculo = vehiculosData.find(function (v) {
+        return v.id === id;
+    });
+
+    if (!vehiculo) return;
+
+    modalDetalleBody.innerHTML = `
+        <p><strong>Marca:</strong> ${vehiculo.marca}</p>
+        <p><strong>Modelo:</strong> ${vehiculo.modelo}</p>
+        <p><strong>Tipo:</strong> ${vehiculo.tipo}</p>
+        <p><strong>Precio:</strong> $ ${vehiculo.precio}</p>
+        <p><strong>Descripción:</strong> ${vehiculo.descripcion}</p>
+    `;
+
+    modalDetalle.show();
+}
+
+// Guarda el id pendiente de eliminar y muestra el modal de confirmación
+function solicitarEliminarVehiculo(id) {
+    const vehiculo = vehiculosData.find(function (v) {
+        return v.id === id;
+    });
+
+    if (!vehiculo) return;
+
+    idVehiculoAEliminar = id;
+    nombreVehiculoEliminar.textContent = `${vehiculo.marca} ${vehiculo.modelo}`;
+    modalConfirmarEliminar.show();
+}
+
+// Evento del botón "Eliminar" dentro del modal de confirmación
+btnConfirmarEliminar.addEventListener("click", function () {
+    if (idVehiculoAEliminar !== null) {
+        eliminarVehiculo(idVehiculoAEliminar);
+        idVehiculoAEliminar = null;
+    }
+    modalConfirmarEliminar.hide();
+});
 
 // Elimina un vehículo del arreglo de datos y vuelve a renderizar
 function eliminarVehiculo(id) {
@@ -281,8 +355,9 @@ descripcion.addEventListener("blur", () => validarDescripcion(descripcion, error
 // ==========================================================================
 // EVENTO SUBMIT DEL FORMULARIO
 // --------------------------------------------------------------------------
-// Valida los datos, los agrega al arreglo "vehiculosData" (fuente de
-// datos) y vuelve a renderizar la sección dinámica.
+// Valida los datos, muestra un spinner simulando el proceso de guardado,
+// agrega el vehículo al arreglo "vehiculosData" (fuente de datos) y
+// vuelve a renderizar la sección dinámica.
 // ==========================================================================
 formulario.addEventListener("submit", function (event) {
     // Evita que la página se recargue
@@ -296,33 +371,47 @@ formulario.addEventListener("submit", function (event) {
         return;
     }
 
-    // Crear el nuevo objeto vehículo a partir de los datos del formulario
-    const nuevoVehiculo = {
-        id: siguienteId++,
-        marca: marca.value.trim(),
-        modelo: modelo.value.trim(),
-        precio: parseFloat(precio.value.trim()),
-        tipo: tipo.value,
-        descripcion: descripcion.value.trim()
-    };
+    // Mostrar spinner en el botón y deshabilitarlo mientras se "guarda"
+    btnRegistrar.disabled = true;
+    spinnerRegistrar.classList.remove("d-none");
+    textoBtnRegistrar.textContent = "Guardando...";
 
-    // Agregar el nuevo vehículo a los datos y renderizar de nuevo
-    vehiculosData.push(nuevoVehiculo);
-    renderizarVehiculos();
+    // Simula un proceso de guardado (por ejemplo, una petición al servidor)
+    setTimeout(function () {
+        // Crear el nuevo objeto vehículo a partir de los datos del formulario
+        const nuevoVehiculo = {
+            id: siguienteId++,
+            marca: marca.value.trim(),
+            modelo: modelo.value.trim(),
+            precio: parseFloat(precio.value.trim()),
+            tipo: tipo.value,
+            descripcion: descripcion.value.trim()
+        };
 
-    // Mensaje de éxito
-    mostrarMensajeGeneral("success", "Vehículo registrado correctamente.");
+        // Agregar el nuevo vehículo a los datos y renderizar de nuevo
+        vehiculosData.push(nuevoVehiculo);
+        renderizarVehiculos();
 
-    // Limpiar formulario y estados visuales
-    formulario.reset();
-    limpiarEstadosFormulario();
+        // Mensaje de éxito
+        mostrarMensajeGeneral("success", "Vehículo registrado correctamente.");
+
+        // Limpiar formulario y estados visuales
+        formulario.reset();
+        limpiarEstadosFormulario();
+
+        // Restaurar el botón a su estado normal
+        btnRegistrar.disabled = false;
+        spinnerRegistrar.classList.add("d-none");
+        textoBtnRegistrar.textContent = "Agregar Vehículo";
+    }, 800);
 });
 
 // ==========================================================================
-// RENDERIZADO INICIAL
+// SPINNER DE CARGA INICIAL
 // --------------------------------------------------------------------------
-// Al cargar la página se "renderiza la plantilla" con los datos iniciales,
-// igual que un motor de plantillas generaría el HTML final al recibir
-// la primera petición del cliente.
+// Simula una carga de datos desde el servidor antes de mostrar el catálogo.
 // ==========================================================================
-renderizarVehiculos();
+setTimeout(function () {
+    renderizarVehiculos();
+    cargaInicial.classList.add("d-none");
+}, 1000);
