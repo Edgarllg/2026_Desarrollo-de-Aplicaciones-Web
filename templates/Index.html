@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}AutoDrive - Inicio{% endblock %}
+{% block header %}Bienvenido a AutoDrive{% endblock %}
+{% block subheader %}Tu concesionaria de confianza en Riobamba{% endblock %}
+
+{% block content %}
+<section class="row align-items-center mb-5">
+    <div class="col-md-6">
+        <h2>Encuentra el vehículo ideal para ti</h2>
+        <p class="lead">
+            En AutoDrive ofrecemos una amplia variedad de vehículos nuevos y
+            seminuevos, con financiamiento accesible y garantía respaldada
+            por nuestras marcas asociadas.
+        </p>
+        <a href="{{ url_for('productos') }}" class="btn btn-primary btn-lg">
+            <i class="bi bi-car-front-fill me-1"></i> Ver Vehículos
+        </a>
+    </div>
+    <div class="col-md-6 text-center">
+        <img src="{{ url_for('static', filename='img/concesionario.jpg') }}"
+             class="img-fluid rounded shadow" alt="Concesionaria AutoDrive">
+    </div>
+</section>
+
+<section class="row text-center g-4 mb-5">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <i class="bi bi-car-front display-4 text-primary"></i>
+                <h5 class="card-title mt-3">Amplio catálogo</h5>
+                <p class="card-text">Variedad de marcas y modelos para todo tipo de necesidad.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <i class="bi bi-cash-coin display-4 text-primary"></i>
+                <h5 class="card-title mt-3">Financiamiento</h5>
+                <p class="card-text">Planes de crédito flexibles adaptados a tu presupuesto.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <i class="bi bi-shield-check display-4 text-primary"></i>
+                <h5 class="card-title mt-3">Garantía</h5>
+                <p class="card-text">Todos nuestros vehículos cuentan con garantía oficial.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
